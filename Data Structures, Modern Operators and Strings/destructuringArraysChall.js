@@ -222,7 +222,7 @@ const books = [
     highlighted: true,
   },
 ];
-
+/* 
 const [firstBook, secondBook] = books;
 console.log(firstBook, secondBook);
 
@@ -240,3 +240,37 @@ console.log(rating, ratingsCount);
 const ratingStars = [63405, 1808];
 const [fiveStarRatings, oneStarRating, threeStarRatings = 0] = ratingStars;
 console.log(fiveStarRatings, oneStarRating, threeStarRatings);
+ 
+ */
+
+const { title, author, ISBN } = books[0];
+console.log(title, author, ISBN);
+
+const { keywords: tags } = books[0];
+console.log(tags);
+
+const { language, programmingLanguage = 'unknown' } = books[6];
+console.log(programmingLanguage);
+
+let bookTitle = 'unknown';
+let bookAuthor = 'unknown';
+
+({ title: bookTitle, author: bookAuthor } = books[0]);
+console.log(title, author);
+
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
+
+console.log(bookRating);
+
+const printBookInfo = function ({ title, author, year = 'year unknown' }) {
+  console.log(`${title} by ${author}, ${year}`);
+};
+
+printBookInfo({
+  title: 'algorithm',
+  author: 'John',
+});
