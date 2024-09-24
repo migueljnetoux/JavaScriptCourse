@@ -222,28 +222,18 @@ const books = [
     highlighted: true,
   },
 ];
-/* 
-const [firstBook, secondBook] = books;
-console.log(firstBook, secondBook);
 
-const [, , thirdBook] = books;
-console.log(thirdBook);
+//lESSON 3
+const bookAuthors = [...books[0].author, ...books[1].author];
+console.log(bookAuthors);
 
-const ratings = [
-  ['rating', 4.19],
-  ['ratingsCount', 144584],
-];
+const spellWord = function (string) {
+  console.log(...string);
+};
+spellWord('Nova');
 
-const [[, rating], [, ratingsCount]] = ratings;
-console.log(rating, ratingsCount);
-
-const ratingStars = [63405, 1808];
-const [fiveStarRatings, oneStarRating, threeStarRatings = 0] = ratingStars;
-console.log(fiveStarRatings, oneStarRating, threeStarRatings);
- 
- */
-
-const { title, author, ISBN } = books[0];
+/*//LESSON 2
+ const { title, author, ISBN } = books[0];
 console.log(title, author, ISBN);
 
 const { keywords: tags } = books[0];
@@ -274,3 +264,25 @@ printBookInfo({
   title: 'algorithm',
   author: 'John',
 });
+ */
+
+/*//LESSON 1 
+const [firstBook, secondBook] = books;
+console.log(firstBook, secondBook);
+
+const [, , thirdBook] = books;
+console.log(thirdBook);
+
+const ratings = [
+  ['rating', 4.19],
+  ['ratingsCount', 144584],
+];
+
+const [[, rating], [, ratingsCount]] = ratings;
+console.log(rating, ratingsCount);
+
+const ratingStars = [63405, 1808];
+const [fiveStarRatings, oneStarRating, threeStarRatings = 0] = ratingStars;
+console.log(fiveStarRatings, oneStarRating, threeStarRatings);
+ 
+ */

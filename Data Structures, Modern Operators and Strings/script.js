@@ -41,8 +41,23 @@ const restaurant = {
       `adress: ${adress}, starter: ${this.starterMenu[starterIndex]}, main: ${this.mainMenu[mainIndex]}, hours: ${hourOfDelivery}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Pasta will have ${ing1}, ${ing2} and ${ing3}`);
+  },
 };
 
+/* const ings = [prompt('ing 1'), prompt('ing 2'), prompt('ing 3')]; 
+console.log(ings);
+restaurant.orderPasta(...ings);*/
+
+const newMenu = [...restaurant.mainMenu, 'fries'];
+console.log(newMenu);
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+/*  const { name, openingHours, categories } = restaurant;
+console.log(openingHours);
 restaurant.orderDelivery({
   adress: 'Rua DJoaoIV',
   hourOfDelivery: '22',
@@ -50,9 +65,9 @@ restaurant.orderDelivery({
   mainIndex: 2,
 });
 
-const { name, openingHours, categories } = restaurant;
-console.log(openingHours);
-
+const arr = [7, 8, 9];
+const newArr = [1, 2, ...arr];
+console.log(newArr);
 const { name: restaurantName, openingHours: hours } = restaurant;
 console.log(restaurantName, hours);
 
@@ -67,7 +82,7 @@ let b = 222;
 
 const obj = { a: 23, b: 13, c: 55 };
 ({ a, b } = obj);
-console.log(a, b); */
+console.log(a, b); 
 
 //Nested objects
 
@@ -79,7 +94,7 @@ const {
 
 console.log(o, c);
 
-/* 
+
 const arr = [2, 3, 4];
 
 const a = arr[0];
