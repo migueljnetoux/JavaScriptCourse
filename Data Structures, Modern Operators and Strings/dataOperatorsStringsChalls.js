@@ -223,14 +223,29 @@ const books = [
   },
 ];
 
-//lESSON 3
+/* //LESSON 4
+const [mainKeyword, ...rest] = books[0].keywords;
+console.log(mainKeyword, rest);
+
+const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+console.log(bookPublisher);
+console.log(restOfTheBook);
+
+const printBookAuthorsCount = function (title, ...authors) {
+  console.log(`${title} by ${authors.length} author(s)`);
+},
+
+printBookAuthorsCount(1, 2, 3, 4);
+ */
+/* //lESSON 3
+
 const bookAuthors = [...books[0].author, ...books[1].author];
 console.log(bookAuthors);
 
 const spellWord = function (string) {
   console.log(...string);
 };
-spellWord('Nova');
+spellWord('Nova'); */
 
 /*//LESSON 2
  const { title, author, ISBN } = books[0];
