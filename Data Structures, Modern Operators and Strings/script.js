@@ -55,12 +55,38 @@ const restaurant = {
   },
 };
 
+/* const rest1 = {
+  name: 'restauranteOne',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'restauranteTwo',
+  owner: 'Mr. G',
+};
+
+//rest1.numGuests = rest1.numGuests || 10;
+//rest2.numGuests = rest2.numGuests || 10;
+
+//rest1.numGuests ||= 10;
+//rest2.numGuests ||= 10;
+
+rest1.numGuests ??= 10; //nulish coalescing operator
+rest2.numGuests ??= 10; //nulish coalescing operator
+
+rest2.owner &&= '*****';
+console.log(rest1);
+console.log(rest2);
+ */
+/* 
+//Nulish Coalescing
 restaurant.guests = 0;
 const guests = restaurant.guests || 10;
 console.log(guests);
 
 const guestCorrect = restaurant.guests ?? 10;
 console.log(guestCorrect);
+ */
 
 /* //Short Circuiting
 const guests1 = restaurant.guests ? restaurant.guests : 11;
@@ -190,3 +216,87 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
  */
+
+//Exercicio 1
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 7.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1.1
+let players1 = game.players[0];
+let players2 = game.players[1];
+console.log(players1);
+console.log(players2);
+
+//1.2
+const [gk, ...fieldplayers] = players1;
+console.log(gk);
+console.log(fieldplayers);
+
+//1.3
+let allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+//1.4
+let playersFinal = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(playersFinal);
+
+//1.5
+let team1 = game.odds.team1;
+let draw = game.odds.x;
+let team2 = game.odds.team2;
+console.log(team1);
+console.log(draw);
+console.log(team2);
+
+//1.6
+
+function printGoals(...players) {
+  console.log(players);
+  console.log(players.length);
+}
+
+printGoals(...game.scored);
+
+//1.7
+
+team1 < team2 && console.log('team 1 wins');
+team1 > team2 && console.log('team 2 wins');
