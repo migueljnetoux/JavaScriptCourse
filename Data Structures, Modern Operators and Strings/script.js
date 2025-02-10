@@ -54,6 +54,24 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+restaurant.guests = 0;
+const guests = restaurant.guests || 10;
+console.log(guests);
+
+const guestCorrect = restaurant.guests ?? 10;
+console.log(guestCorrect);
+
+/* //Short Circuiting
+const guests1 = restaurant.guests ? restaurant.guests : 11;
+console.log(guests1);
+
+restaurant.guests = 0;
+const guests2 = restaurant.guests || 21;
+console.log(guests2);
+
+restaurant.orderPizza && restaurant.orderPizza('mush', 'a', 'b');
+ */
 /* const { sat, ...weekdays } = restaurant.openingHours;
 console.log(weekdays, sat);
  */
