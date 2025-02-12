@@ -7,6 +7,10 @@ const flights =
 // Data needed for first part of the section
 
 const openingHours = {
+  mon: {
+    open: 4,
+    close: 16,
+  },
   thu: {
     open: 12,
     close: 22,
@@ -53,7 +57,31 @@ const restaurant = {
   },
 };
 
-//optional chaning
+/* //Proprety NAMES
+const propreties = Object.keys(openingHours);
+//console.log(propreties);
+let stringOpen = `Open on ${propreties.length} days : `;
+for (const days of propreties) {
+  stringOpen += `${days},`;
+}
+
+//console.log(stringOpen);
+
+//Proprety Value
+for (const days of propreties) {
+  const [open, close] = Object.values(openingHours[days]);
+  //console.log(open, close);
+  console.log(`On ${days} we open at ${open} and close at ${close}`);
+}
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(key, open, close);
+}
+ */
+/* //optional chaning
 if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
 console.log(restaurant.openingHours.mon?.open); // .open only runs if ...? exists
@@ -71,7 +99,7 @@ console.log(restaurant.orderFood?.(0, 1) ?? 'Does not exist');
 const users = [{ name: 'Jonas', email: 'hello.io' }];
 
 console.log(users[0]?.name ?? 'Not Defined');
-
+ */
 /*
 //for of loop
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
@@ -248,7 +276,7 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
  */
-/* 
+
 //Exercicio 1
 
 const game = {
@@ -292,7 +320,7 @@ const game = {
   },
 };
 
-//1.1
+/* //1.1
 let players1 = game.players[0];
 let players2 = game.players[1];
 console.log(players1);
@@ -333,3 +361,35 @@ printGoals(...game.scored);
 team1 < team2 && console.log('team 1 wins');
 team1 > team2 && console.log('team 2 wins');
  */
+
+//exercicio 2
+
+/* //2.1
+for (const [goal, player] of game.scored.entries()) {
+  console.log(`${goal + 1}`, player);
+}
+
+//2.2
+let meanOdds;
+let sumOdds = 0;
+let numOdds = Object.keys(game.odds).length;
+
+for (const odd of Object.values(game.odds)) {
+  console.log(odd);
+  sumOdds += odd;
+}
+meanOdds = sumOdds / numOdds;
+console.log(meanOdds);
+ */
+//2.3
+
+let team1 = game.team1;
+let team2 = game.team2;
+let counter = 1;
+for (const [team, odd] of Object.entries(game.odds)) {
+  //console.log(team, odd);
+
+  let teamName = game[team];
+  teamName = teamName || 'Draw';
+  console.log(teamName, odd);
+}
