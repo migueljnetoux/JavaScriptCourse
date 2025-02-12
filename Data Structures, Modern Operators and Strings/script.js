@@ -54,6 +54,20 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+/* 
+//for of loop
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+//element
+for (const item of menu) console.log(item);
+
+//element + indexOf element
+for (const item of menu.entries()) console.log(item);
+
+//desconstruir elemento
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+} */
 
 /* const rest1 = {
   name: 'restauranteOne',
@@ -216,7 +230,7 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
  */
-
+/* 
 //Exercicio 1
 
 const game = {
@@ -300,3 +314,4 @@ printGoals(...game.scored);
 
 team1 < team2 && console.log('team 1 wins');
 team1 > team2 && console.log('team 2 wins');
+ */
