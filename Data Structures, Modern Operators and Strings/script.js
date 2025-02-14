@@ -57,6 +57,27 @@ const restaurant = {
   },
 };
 
+//Sets
+const order_set = new Set(['pizza', 'pasta', 'risotto', 'pasta']);
+console.log(order_set);
+console.log(order_set.size);
+console.log(order_set.has('pasta'));
+console.log(order_set.has('cane'));
+order_set.add('IceCream');
+order_set.delete('risotto');
+console.log(order_set);
+
+for (const order of order_set) console.log(order);
+
+console.log(new Set('Miguel Neto'));
+
+const staff = ['waiter', 'waiter', 'waiter', 'chef', 'chef', 'subchef'];
+
+const staff_unique = [...new Set(staff)]; //spread para array
+console.log(staff_unique);
+
+console.log(staff_unique.length);
+
 /* //Proprety NAMES
 const propreties = Object.keys(openingHours);
 //console.log(propreties);
@@ -278,7 +299,7 @@ console.log(p, q, r);
  */
 
 //Exercicio 1
-
+/* 
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -319,7 +340,7 @@ const game = {
     team2: 6.5,
   },
 };
-
+ */
 /* //1.1
 let players1 = game.players[0];
 let players2 = game.players[1];
@@ -382,7 +403,7 @@ meanOdds = sumOdds / numOdds;
 console.log(meanOdds);
  */
 //2.3
-
+/* 
 let team1 = game.team1;
 let team2 = game.team2;
 let counter = 1;
@@ -393,3 +414,4 @@ for (const [team, odd] of Object.entries(game.odds)) {
   teamName = teamName || 'Draw';
   console.log(teamName, odd);
 }
+ */
