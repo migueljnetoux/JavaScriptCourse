@@ -58,14 +58,55 @@ const restaurant = {
 };
 
 //Sets
+
+const italian_foods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexican_foods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+const common_foods = italian_foods.intersection(mexican_foods); //intersection
+console.log('intersection:', common_foods);
+
+const italian_mexican_fusion = italian_foods.union(mexican_foods); //union
+console.log('union:', italian_mexican_fusion);
+
+const unique_italians = italian_foods.difference(mexican_foods); //difference
+console.log('difference:', unique_italians);
+
+const unique_mexicans = mexican_foods.difference(italian_foods); //difference
+console.log('difference:', unique_mexicans);
+
+const unique_italian_mexican_foods =
+  italian_foods.symmetricDifference(mexican_foods); //symmetric difference
+console.log('symmetric difference:', unique_italian_mexican_foods);
+
+const evens = new Set([2, 4, 6, 8]);
+const odds = new Set([1, 3, 5, 7, 9]);
+console.log(evens, odds);
+console.log('Disjoint:', evens.isDisjointFrom(odds));
+
+/* 
 const order_set = new Set(['pizza', 'pasta', 'risotto', 'pasta']);
 console.log(order_set);
 console.log(order_set.size);
-console.log(order_set.has('pasta'));
+console.log(order_set.has('pasta')); // has
 console.log(order_set.has('cane'));
-order_set.add('IceCream');
-order_set.delete('risotto');
-console.log(order_set);
+order_set.add('IceCream');  //add
+order_set.delete('risotto'); //delete
+console.log(order_set);   //clear
 
 for (const order of order_set) console.log(order);
 
@@ -77,7 +118,7 @@ const staff_unique = [...new Set(staff)]; //spread para array
 console.log(staff_unique);
 
 console.log(staff_unique.length);
-
+ */
 /* //Proprety NAMES
 const propreties = Object.keys(openingHours);
 //console.log(propreties);
