@@ -58,7 +58,43 @@ const restaurant = {
 };
 
 //maps
-const rest = new Map();
+//maps  iteration
+/* 
+const question = new Map([
+  ['question', 'what is the best p lang in the world'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JS'],
+  ['correct', 2],
+  [true, 'Correct'],
+  [false, 'Incorrect'],
+]);
+
+console.log(question);
+//CONvert Object to Map
+
+//console.log(Object.entries(openingHours));
+
+const hours_map = new Map(Object.entries(openingHours));
+//console.log(hours_map);
+
+//Quiz APP
+console.log(question.get('question'));
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(key, value);
+}
+
+const answer = Number(prompt('Answer: '));
+
+console.log(question.get(answer === question.get('correct')));
+
+//COnvert MAP to ARRAY
+
+console.log([...question]);
+ */
+//FUNDAMENTALS
+/* const rest = new Map();
 
 rest.set('name', 'Classico Italiano');
 rest.set(1, 'Firenze, Italy');
@@ -89,7 +125,7 @@ console.log(rest.get(arr));
 
 rest.set(document.querySelector('h1'), 'Heading'); //DOM
 console.log(rest);
-
+ */
 /* 
 //Sets
 
