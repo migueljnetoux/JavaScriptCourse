@@ -592,6 +592,6 @@ const game_half = new Map([
 
 for (const [time, event] of gameEvents) {
   // console.log(time, event);
-  const half = min <= 45 ? 'FIRST' : 'SECOND';
+  const half = time <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} Half], ${time}, ':', ${event}`);
 }
