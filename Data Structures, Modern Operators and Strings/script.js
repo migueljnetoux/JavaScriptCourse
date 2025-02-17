@@ -57,6 +57,40 @@ const restaurant = {
   },
 };
 
+//maps
+const rest = new Map();
+
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Porto, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'we are open')
+  .set(false, 'we are closed');
+
+console.log(rest.get('name')); //retrieve from key
+console.log(rest.get(true));
+
+console.log('------------------ Time Exercise ------------------');
+
+const time = 21;
+console.log(time > rest.get('open') && time < rest.get('close'));
+
+console.log(rest.has('name')); // has method
+rest.delete(2); //delete method
+console.log(rest.size); //size method
+
+const arr = [1, 2]; //get arrays
+rest.set(arr, 'test');
+console.log(rest.get(arr));
+
+rest.set(document.querySelector('h1'), 'Heading'); //DOM
+console.log(rest);
+
+/* 
 //Sets
 
 const italian_foods = new Set([
@@ -77,6 +111,7 @@ const mexican_foods = new Set([
   'garlic',
 ]);
 
+//sets operations
 const common_foods = italian_foods.intersection(mexican_foods); //intersection
 console.log('intersection:', common_foods);
 
@@ -97,7 +132,7 @@ const evens = new Set([2, 4, 6, 8]);
 const odds = new Set([1, 3, 5, 7, 9]);
 console.log(evens, odds);
 console.log('Disjoint:', evens.isDisjointFrom(odds));
-
+ */
 /* 
 const order_set = new Set(['pizza', 'pasta', 'risotto', 'pasta']);
 console.log(order_set);
