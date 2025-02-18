@@ -57,6 +57,42 @@ const restaurant = {
   },
 };
 // String
+/* 
+console.log('a+nice+string'.split('+'));
+
+console.log('Miguel Neto'.split(' '));
+
+const [first_name, last_name] = 'Miguel Neto'.split(' ');
+console.log(first_name, last_name);
+
+const new_name = ['Mr', first_name, last_name.toUpperCase()].join(' ');
+console.log(new_name);
+
+const capitalize_name = function (name) {
+  const name_array = name.split(' ').map(name => name.charAt(0).toUpperCase());
+  console.log(name_array);
+};
+
+capitalize_name('miguel jose carvalho neto');
+
+//padding
+
+const message = 'Go to gate 23';
+console.log(message.padStart(25, '+').padEnd(35, '+'));
+
+const mask_card = function (number) {
+  const string = number + '';
+  const last_char = string.slice(-4);
+  console.log('Masked Number: ', last_char.padStart(string.length, '*'));
+};
+
+mask_card(77771234);
+
+//repeat method
+
+const message_two = 'Bad Weather... All Departures Delayed... \n';
+console.log(message_two.repeat(5));
+ */
 /* const airline = 'TAP Air Portugal';
 const plane = 'A320';
 const passenger = 'jOnAs';
