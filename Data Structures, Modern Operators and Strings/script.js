@@ -56,7 +56,38 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+// String
+/* 
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
 
+console.log(plane[0]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+
+console.log(airline.indexOf('P')); //index of
+console.log(airline.lastIndexOf('P')); // last index of
+console.log(airline.indexOf('TAP'));
+
+console.log(airline.slice(4, 7)); //slice
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(1, -1));
+
+const middle_seat_checker = function (seat_number) {
+  const middle_seats = ['B', 'E'];
+  const seat_letter = seat_number.slice(-1);
+  console.log(seat_letter);
+
+  return middle_seats.includes(seat_letter) ? true : false;
+};
+
+console.log(middle_seat_checker('1B'));
+console.log(middle_seat_checker('1c'));
+ */
 // const array = [1, 2, 3, 4, 5, 5, 6];
 // const array_unique = new Set(...array);
 // console.log(array_unique);
@@ -544,7 +575,7 @@ Let's continue with our football betting app! This time, we have a map with a lo
 
 GOOD LUCK 😀
 */
-
+/* 
 const gameEvents = new Map([
   [17, '⚽️ GOAL'],
   [36, '🔁 Substitution'],
@@ -595,3 +626,4 @@ for (const [time, event] of gameEvents) {
   const half = time <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} Half], ${time}, ':', ${event}`);
 }
+ */
