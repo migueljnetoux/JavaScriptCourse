@@ -221,32 +221,36 @@ BONUS: Use the 'displayResults' method to display the 2 arrays in the test data.
 GOOD LUCK 😀
 */
 // exercise 1
-// const poll = {
-//   question: 'What is your favourite programming language?',
-//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-//   // This generates [0, 0, 0, 0]. More in the next section 😃
-//   answers: new Array(4).fill(0),
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  // This generates [0, 0, 0, 0]. More in the next section 😃
+  answers: new Array(4).fill(0),
 
-//   registerNewAnswer() {
-//     const answer = prompt(
-//       'What is your favourite programming language? \n0: JavaScript\n1: Python\n2: Rust\n3: C++\n(Write option number)'
-//     );
-//     answer < this.answers.length
-//       ? this.answers[answer]++
-//       : console.log('Invalid Answer');
-//     this.display_results(this.answers);
-//   },
+  registerNewAnswer() {
+    const answer = Number(
+      prompt(`${this.question} \n ${this.options.join('\n')} `)
+    );
+    answer < this.answers.length
+      ? this.answers[answer]++
+      : console.log('Invalid Answer');
 
-//   display_results(type) {
-//     console.log('poll results: ', ...type);
-//   },
-// };
+    this.display_results();
+    this.display_results('string');
+  },
 
-// document
-//   .querySelector('.poll')
-//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+  display_results(type = 'array') {
+    if (type == 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are  ${this.answers.join(', ')}`);
+    }
+  },
+};
 
-// const bonus_test_1 = [5, 2, 3];
-// const bonus_test_2 = [1, 5, 3, 9, 6, 1];
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-// const new_display = display_results.bind(null, bonus_test_1);
+const array = [5, 2, 3];
+poll.display_results.call({ answers: [5, 2, 3] }, 'string');
