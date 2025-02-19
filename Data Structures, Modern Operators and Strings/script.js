@@ -4,6 +4,21 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const airport_code = airport => airport.slice(0, 3).toUpperCase();
+const status_check = function (string) {
+  let type = string.replaceAll('_', ' ').trim();
+  return type.includes('Delayed') ? 'X ' + type : type;
+};
+
+for (const flight of flights.split('+')) {
+  const [status, from, to, hour] = flight.split(';');
+  const output = `${status_check(status)} from ${airport_code(
+    from
+  )} to ${airport_code(to)} (${hour.replace(':', 'h')})`;
+  // console.log(status);
+  console.log(output.padStart(50));
+}
+
 // Data needed for first part of the section
 
 const openingHours = {
