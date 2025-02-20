@@ -61,6 +61,25 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const display_movement = function (movements) {
+  containerMovements.innerHTML = ''; //clear container
+  movements.forEach(function (mov, i) {
+    const mov_type = mov < 0 ? 'withdrawal' : 'deposit';
+
+    const html = `
+        <div class="movements__row">
+          <div class="movements__type movements__type--${mov_type}">${
+      i + 1
+    } ${mov_type} </div>
+          <div class="movements__value">${mov}</div>
+        </div>
+        `;
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+display_movement(account1.movements);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -112,37 +131,65 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //for Each
 //cant CONTINUE or BREAK
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-for (const [mov, value] of movements.entries()) {
-  mov < 0
-    ? console.log(mov + 1, 'Withdrew', Math.abs(value))
-    : console.log(mov + 1, 'Deposited ', value);
-}
+// for (const [mov, value] of movements.entries()) {
+//   mov < 0
+//     ? console.log(mov + 1, 'Withdrew', Math.abs(value))
+//     : console.log(mov + 1, 'Deposited ', value);
+// }
 
-console.log('-'.padEnd(25, '-'), 'FOR EACH');
+// console.log('-'.padEnd(25, '-'), 'FOR EACH');
 
-movements.forEach(function (mov, index, array) {
-  mov < 0
-    ? console.log(index, 'Withdrew', Math.abs(mov))
-    : console.log(index, 'Deposited ', mov);
-});
+// movements.forEach(function (mov, index, array) {
+//   mov < 0
+//     ? console.log(index, 'Withdrew', Math.abs(mov))
+//     : console.log(index, 'Deposited ', mov);
+// });
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
-//for Each map
-currencies.forEach(function (value, key, map) {
-  console.log(`${key}: ${value} `);
-});
+// //for Each map
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${key}: ${value} `);
+// });
 
-// for Each set
-//so ha o parametro Value, sets nao aceitam keys ou indexs
-const currencies_unique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
-console.log(currencies_unique);
-currencies_unique.forEach(function (value, _, set) {
-  console.log(`${key}: ${value} `);
-});
+// // for Each set
+// //so ha o parametro Value, sets nao aceitam keys ou indexs
+// const currencies_unique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+// console.log(currencies_unique);
+// currencies_unique.forEach(function (value, _, set) {
+//   console.log(`${key}: ${value} `);
+// });
+
+// exercise 1
+
+const check_dogs = function (dogs_julia, dogs_kate) {
+  const total_data = dogs_kate.concat(dogs_julia.slice(1, -2));
+  total_data.forEach(function (age, i, array) {
+    const string =
+      age < 3 ? 'still a puppy' : `an adult, and is ${age} years old`;
+
+    console.log(`Dog number ${i + 1} is ${string}     ${age}`);
+  });
+};
+
+// Julias
+const arr_julia = [3, 5, 2, 12, 7];
+// Kate
+const arr_kate = [4, 1, 15, 8, 3];
+
+check_dogs(arr_julia, arr_kate);
+
+console.log('-'.repeat(20));
+
+// Julias
+const arr_j = [9, 16, 6, 8, 3];
+// Kate
+const arr_k = [10, 5, 6, 1, 4];
+
+check_dogs(arr_j, arr_k);
