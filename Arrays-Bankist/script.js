@@ -61,6 +61,31 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+//computing usernames
+const create_username = function (accs) {
+  //accepts any account array
+  accs.forEach(function (acc) {
+    acc.username = acc.owner //takes the owner of each acc and creates an account element
+      .toLowerCase()
+      .split(' ')
+      .map(n => n.charAt(0))
+      .join('');
+  });
+};
+create_username(accounts);
+
+console.log(accounts);
+
+// const user = 'Miguel Jose Neto'; // mjn
+// const username = user
+//   .toLowerCase()
+//   .split(' ')
+//   .map(n => n.charAt(0))
+//   .join('');
+
+// console.log(username);
+
+//create movements
 const display_movement = function (movements) {
   containerMovements.innerHTML = ''; //clear container
   movements.forEach(function (mov, i) {
@@ -168,28 +193,42 @@ display_movement(account1.movements);
 
 // exercise 1
 
-const check_dogs = function (dogs_julia, dogs_kate) {
-  const total_data = dogs_kate.concat(dogs_julia.slice(1, -2));
-  total_data.forEach(function (age, i, array) {
-    const string =
-      age < 3 ? 'still a puppy' : `an adult, and is ${age} years old`;
+// const check_dogs = function (dogs_julia, dogs_kate) {
+//   const total_data = dogs_kate.concat(dogs_julia.slice(1, -2));
+//   total_data.forEach(function (age, i, array) {
+//     const string =
+//       age < 3 ? 'still a puppy' : `an adult, and is ${age} years old`;
 
-    console.log(`Dog number ${i + 1} is ${string}     ${age}`);
-  });
-};
+//     console.log(`Dog number ${i + 1} is ${string}     ${age}`);
+//   });
+// };
 
-// Julias
-const arr_julia = [3, 5, 2, 12, 7];
-// Kate
-const arr_kate = [4, 1, 15, 8, 3];
+// // Julias
+// const arr_julia = [3, 5, 2, 12, 7];
+// // Kate
+// const arr_kate = [4, 1, 15, 8, 3];
 
-check_dogs(arr_julia, arr_kate);
+// check_dogs(arr_julia, arr_kate);
 
-console.log('-'.repeat(20));
+// console.log('-'.repeat(20));
 
-// Julias
-const arr_j = [9, 16, 6, 8, 3];
-// Kate
-const arr_k = [10, 5, 6, 1, 4];
+// // Julias
+// const arr_j = [9, 16, 6, 8, 3];
+// // Kate
+// const arr_k = [10, 5, 6, 1, 4];
 
-check_dogs(arr_j, arr_k);
+// check_dogs(arr_j, arr_k);
+
+// map method
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const euro_to_usd = 1.1;
+
+// const mov_usd = movements.map(function (mov) {
+//   return mov * euro_to_usd;
+// });
+// const mov_usd_arrow = movements.map(mov => mov * euro_to_usd);
+
+// console.log(movements);
+// console.log(mov_usd);
+// console.log(mov_usd_arrow);
