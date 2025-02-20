@@ -65,43 +65,84 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
+
+// Array Methods
+
+// let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// // slice
+// console.log('slice: ', arr.slice(2));
+// console.log(arr.slice(2, 4));
+// console.log(arr.slice(-1));
+// console.log(arr.slice(1, -2));
+
+// console.log(arr.slice()); //shallow copy
+
+// // splice MUTATES ARRAY
+// arr.splice(2);
+// console.log('splice: ', arr);
+
+// // reverse
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['f', 'g', 'h', 'i', 'j'];
+
+// arr.reverse();
+// console.log('reverse: ', arr);
+
+// //concat
+// const letter = arr.concat(arr2);
+// console.log('concat: ', letter);
+// console.log([...arr, ...arr2]);
+
+// //join
+// console.log('join: ', letter.join('-'));
+
+// const arr = [23, 11, 64];
+
+// //at position
+// console.log(arr.at(0));
+
+// //last element
+// console.log(arr[arr.length - 1]);
+// console.log(arr.at(-1));
+
+//for Each
+//cant CONTINUE or BREAK
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const [mov, value] of movements.entries()) {
+  mov < 0
+    ? console.log(mov + 1, 'Withdrew', Math.abs(value))
+    : console.log(mov + 1, 'Deposited ', value);
+}
+
+console.log('-'.padEnd(25, '-'), 'FOR EACH');
+
+movements.forEach(function (mov, index, array) {
+  mov < 0
+    ? console.log(index, 'Withdrew', Math.abs(mov))
+    : console.log(index, 'Deposited ', mov);
+});
+
 const currencies = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+//for Each map
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value} `);
+});
 
-/////////////////////////////////////////////////
-
-// Array Methods
-
-let arr = ['a', 'b', 'c', 'd', 'e'];
-
-// slice
-console.log('slice: ', arr.slice(2));
-console.log(arr.slice(2, 4));
-console.log(arr.slice(-1));
-console.log(arr.slice(1, -2));
-
-console.log(arr.slice()); //shallow copy
-
-// splice MUTATES ARRAY
-arr.splice(2);
-console.log('splice: ', arr);
-
-// reverse
-arr = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = ['f', 'g', 'h', 'i', 'j'];
-
-arr.reverse();
-console.log('reverse: ', arr);
-
-//concat
-const letter = arr.concat(arr2);
-console.log('concat: ', letter);
-console.log([...arr, ...arr2]);
-
-//join
-console.log('join: ', letter.join('-'));
+// for Each set
+//so ha o parametro Value, sets nao aceitam keys ou indexs
+const currencies_unique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currencies_unique);
+currencies_unique.forEach(function (value, _, set) {
+  console.log(`${key}: ${value} `);
+});
