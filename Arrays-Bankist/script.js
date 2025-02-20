@@ -74,37 +74,35 @@ const create_username = function (accs) {
 };
 create_username(accounts);
 
-console.log(accounts);
+//Calc Balance for each account
+const calc_display_balance = function (acc) {
+  const balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = `${balance} €`;
+};
 
-// const user = 'Miguel Jose Neto'; // mjn
-// const username = user
-//   .toLowerCase()
-//   .split(' ')
-//   .map(n => n.charAt(0))
-//   .join('');
+calc_display_balance(account1);
 
-// console.log(username);
-
-//create movements
-const display_movement = function (movements) {
+//display movements for each account
+const display_movement = function (acc) {
   containerMovements.innerHTML = ''; //clear container
-  movements.forEach(function (mov, i) {
+  acc.movements.forEach(function (mov, i) {
     const mov_type = mov < 0 ? 'withdrawal' : 'deposit';
 
     const html = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${mov_type}">${
+    <div class="movements__row">
+    <div class="movements__type movements__type--${mov_type}">${
       i + 1
     } ${mov_type} </div>
-          <div class="movements__value">${mov}</div>
-        </div>
-        `;
+    <div class="movements__value">${mov}</div>
+    </div>
+    `;
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
 
-display_movement(account1.movements);
+display_movement(account1);
 
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -232,3 +230,45 @@ display_movement(account1.movements);
 // console.log(movements);
 // console.log(mov_usd);
 // console.log(mov_usd_arrow);
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movements);
+
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
+// const deposits_arrow = movements.filter(mov => mov > 0);
+
+// console.log(deposits);
+// console.log(deposits_arrow);
+
+// const withdrawals = movements.filter(mov => mov < 0);
+// console.log(withdrawals);
+
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration nº ${i + 0}, accumulator equals to ${acc}`);
+//   return acc + cur;
+// }, 0 /* default value for accumulator */);
+// console.log('total: ', balance);
+
+// const max_value = movements.reduce(function (acc, cur) {
+//   return (acc = cur > acc ? cur : acc);
+// }, 0);
+
+// console.log(max_value);
+
+// exercise 2
+const dogs_year = [5, 2, 4, 1, 15, 8, 3];
+const puppy_year = [16, 6, 10, 5, 6, 1, 4];
+
+const human_years = function (dogs_years) {
+  return dogs_years
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, cur, i, arr) => {
+      return acc + cur / arr.length;
+    }, 0);
+};
+
+console.log(human_years(dogs_year));
+console.log(human_years(puppy_year));
