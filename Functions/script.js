@@ -221,36 +221,82 @@ BONUS: Use the 'displayResults' method to display the 2 arrays in the test data.
 GOOD LUCK 😀
 */
 // exercise 1
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-  // This generates [0, 0, 0, 0]. More in the next section 😃
-  answers: new Array(4).fill(0),
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section 😃
+//   answers: new Array(4).fill(0),
 
-  registerNewAnswer() {
-    const answer = Number(
-      prompt(`${this.question} \n ${this.options.join('\n')} `)
-    );
-    answer < this.answers.length
-      ? this.answers[answer]++
-      : console.log('Invalid Answer');
+//   registerNewAnswer() {
+//     const answer = Number(
+//       prompt(`${this.question} \n ${this.options.join('\n')} `)
+//     );
+//     answer < this.answers.length
+//       ? this.answers[answer]++
+//       : console.log('Invalid Answer');
 
-    this.display_results();
-    this.display_results('string');
-  },
+//     this.display_results();
+//     this.display_results('string');
+//   },
 
-  display_results(type = 'array') {
-    if (type == 'array') {
-      console.log(this.answers);
-    } else if (type === 'string') {
-      console.log(`Poll results are  ${this.answers.join(', ')}`);
-    }
-  },
-};
+//   display_results(type = 'array') {
+//     if (type == 'array') {
+//       console.log(this.answers);
+//     } else if (type === 'string') {
+//       console.log(`Poll results are  ${this.answers.join(', ')}`);
+//     }
+//   },
+// };
 
-document
-  .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-const array = [5, 2, 3];
-poll.display_results.call({ answers: [5, 2, 3] }, 'string');
+// const array = [5, 2, 3];
+// poll.display_results.call({ answers: [5, 2, 3] }, 'string');
+
+// Immediatly Invoked Function Expression IIFE
+// const run_once = function () {
+//   console.log('only run once');
+// };
+
+// run_once();
+
+// (function () {
+//   console.log('only run once for real this time');
+//   const is_private = 23;
+// })();
+
+// // console.log(is_private); //Different scope
+
+// (() => console.log('only run once for real this time'))();
+
+// Closures
+
+// const secure_booking = function () {
+//   let passanger_count = 0;
+
+//   return function () {
+//     passanger_count++;
+//     console.log(`${passanger_count} passengers`);
+//   };
+// };
+
+// const booker = secure_booking();
+
+// booker();
+// booker();
+// booker();
+
+// console.dir(booker);
+
+//exercise 2
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
