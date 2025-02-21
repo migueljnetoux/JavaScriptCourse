@@ -126,7 +126,8 @@ const update_ui = function (acc) {
   display_movement(acc);
 };
 
-//login
+/////////////////////////////////////////Login/////////////////////////////////////////////////
+
 let current_account;
 
 btnLogin.addEventListener('click', function (event) {
@@ -156,6 +157,8 @@ btnLogin.addEventListener('click', function (event) {
   }
 });
 
+/////////////////////////////////////////Transfer/////////////////////////////////////////////////
+
 btnTransfer.addEventListener('click', function (event) {
   event.preventDefault();
   console.log(current_account);
@@ -177,7 +180,7 @@ btnTransfer.addEventListener('click', function (event) {
     transfer_amount > 0 && //amount is positive
     transfer_recepient?.username !== current_account.username //receiver !== sender
   ) {
-    //add movement current user
+    //add movement to users
     current_account.movements.push(-transfer_amount);
     transfer_recepient.movements.push(transfer_amount);
 
@@ -192,6 +195,35 @@ btnTransfer.addEventListener('click', function (event) {
   //Focus Off input
   inputTransferAmount.blur();
 });
+
+/////////////////////////////////////////Close Account/////////////////////////////////////////////////
+
+btnClose.addEventListener('click', function (event) {
+  event.preventDefault();
+  // console.log(current_account);
+
+  //check input data
+  if (
+    inputCloseUsername.value === current_account.username &&
+    Number(inputClosePin.value) === current_account.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === current_account.username
+    );
+    console.log(index, current_account);
+
+    //remove from account array
+    accounts.splice(index, 1);
+
+    //hide ui
+    containerApp.style.opacity = 0;
+  }
+  inputClosePin.value = inputCloseUsername.value = '';
+  inputClosePin.blur();
+  console.log('close');
+  console.log(accounts);
+});
+
 console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
