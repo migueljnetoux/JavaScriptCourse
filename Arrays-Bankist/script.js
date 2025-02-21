@@ -61,28 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-//computing usernames
-const create_username = function (accs) {
-  //accepts any account array
-  accs.forEach(function (acc) {
-    acc.username = acc.owner //takes the owner of each acc and creates an account element
-      .toLowerCase()
-      .split(' ')
-      .map(n => n.charAt(0))
-      .join('');
-  });
-};
-create_username(accounts);
-
-//Calc Balance for each account
-const calc_display_balance = function (acc) {
-  const balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
-  labelBalance.textContent = `${balance} €`;
-};
-
-calc_display_balance(account1);
-
-//display movements for each account
+//display movements
 const display_movement = function (acc) {
   containerMovements.innerHTML = ''; //clear container
   acc.movements.forEach(function (mov, i) {
@@ -100,13 +79,14 @@ const display_movement = function (acc) {
   });
 };
 
-display_movement(account1);
+//Calc Balance
+const calc_balance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = `${acc.balance} €`;
+};
 
 // calc display summary
-
 const calc_display_summary = function (acc) {
-  const interest_rate = 1.2;
-
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, cur) => acc + cur, 0);
@@ -119,30 +99,116 @@ const calc_display_summary = function (acc) {
 
   const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(mov => (mov * interest_rate) / 100)
+    .map(mov => (mov * acc.interestRate) / 100)
     .filter(mov => mov >= 1)
     .reduce((acc, cur) => acc + cur, 0);
   labelSumInterest.textContent = `${Math.abs(interest)}€ `;
 };
 
-calc_display_summary(account1);
-// console.log(accounts);
+//computing usernames
+const create_username = function (accs) {
+  //accepts any account array
+  accs.forEach(function (acc) {
+    acc.username = acc.owner //takes the owner of each acc and creates an account element
+      .toLowerCase()
+      .split(' ')
+      .map(n => n.charAt(0))
+      .join('');
+  });
+};
+create_username(accounts);
+
+//UPDATE UI
+
+const update_ui = function (acc) {
+  calc_display_summary(acc);
+  calc_balance(acc);
+  display_movement(acc);
+};
+
+//login
+let current_account;
+
+btnLogin.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  current_account = accounts.find(
+    acc => acc.username === inputLoginUsername.value //check login username
+  );
+
+  console.log(current_account);
+
+  if (current_account?.pin === Number(inputLoginPin.value)) {
+    // display ui and welcome message
+    labelWelcome.textContent = `Welcome back, ${
+      current_account.owner.split(' ')[0]
+    }`;
+
+    containerApp.style.opacity = 1;
+    //Clearinput fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    //Focus Off input
+    inputLoginPin.blur();
+    // display movements
+    // display balance
+    // display summary
+    update_ui(current_account);
+  }
+});
+
+btnTransfer.addEventListener('click', function (event) {
+  event.preventDefault();
+  console.log(current_account);
+
+  // transfer to object
+  const transfer_recepient = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  console.log(transfer_recepient);
+
+  //amount
+  const transfer_amount = Number(inputTransferAmount.value);
+  console.log(transfer_amount);
+
+  //check if possible
+  if (
+    transfer_amount <= current_account.balance && //balance > transfer
+    transfer_recepient && //receiver exists
+    transfer_amount > 0 && //amount is positive
+    transfer_recepient?.username !== current_account.username //receiver !== sender
+  ) {
+    //add movement current user
+    current_account.movements.push(-transfer_amount);
+    transfer_recepient.movements.push(transfer_amount);
+
+    update_ui(current_account);
+
+    console.log(transfer_recepient.movements);
+  } else {
+    console.log('Transfer is not possible');
+  }
+
+  inputTransferTo.value = inputTransferAmount.value = '';
+  //Focus Off input
+  inputTransferAmount.blur();
+});
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-console.log(movements);
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movements);
 
 /////////////////////////////////////////////////
 
 // Array Methods
 //find method
-console.log(movements.find(mov => mov < 0));
+// console.log(movements.find(mov => mov < 0));
 
-console.log(accounts);
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
-console.log(account);
+// console.log(accounts);
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(account);
 
 // let arr = ['a', 'b', 'c', 'd', 'e'];
 
