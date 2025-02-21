@@ -93,7 +93,7 @@ const display_movement = function (acc) {
     <div class="movements__type movements__type--${mov_type}">${
       i + 1
     } ${mov_type} </div>
-    <div class="movements__value">${mov}</div>
+    <div class="movements__value">${mov} €</div>
     </div>
     `;
     containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -102,16 +102,47 @@ const display_movement = function (acc) {
 
 display_movement(account1);
 
-console.log(accounts);
+// calc display summary
+
+const calc_display_summary = function (acc) {
+  const interest_rate = 1.2;
+
+  const incomes = acc.movements
+    .filter(mov => mov > 0)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumIn.textContent = `${incomes}€ `;
+
+  const expenses = acc.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumOut.textContent = `${Math.abs(expenses)}€ `;
+
+  const interest = acc.movements
+    .filter(mov => mov > 0)
+    .map(mov => (mov * interest_rate) / 100)
+    .filter(mov => mov >= 1)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumInterest.textContent = `${Math.abs(interest)}€ `;
+};
+
+calc_display_summary(account1);
+// console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
 
 /////////////////////////////////////////////////
 
 // Array Methods
+//find method
+console.log(movements.find(mov => mov < 0));
+
+console.log(accounts);
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
 
 // let arr = ['a', 'b', 'c', 'd', 'e'];
 
@@ -231,9 +262,6 @@ console.log(accounts);
 // console.log(mov_usd);
 // console.log(mov_usd_arrow);
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-// console.log(movements);
-
 // const deposits = movements.filter(function (mov) {
 //   return mov > 0;
 // });
@@ -258,17 +286,31 @@ console.log(accounts);
 // console.log(max_value);
 
 // exercise 2
-const dogs_year = [5, 2, 4, 1, 15, 8, 3];
-const puppy_year = [16, 6, 10, 5, 6, 1, 4];
+// const dogs_year = [5, 2, 4, 1, 15, 8, 3];
+// const puppy_year = [16, 6, 10, 5, 6, 1, 4];
 
-const human_years = function (dogs_years) {
-  return dogs_years
-    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
-    .filter(age => age >= 18)
-    .reduce((acc, cur, i, arr) => {
-      return acc + cur / arr.length;
-    }, 0);
-};
+// const human_years = function (dogs_years) {
+//   return dogs_years
+//     .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+//     .filter(age => age >= 18)
+//     .reduce((acc, cur, i, arr) => {
+//       return acc + cur / arr.length;
+//     }, 0);
+// };
 
-console.log(human_years(dogs_year));
-console.log(human_years(puppy_year));
+// console.log(human_years(dogs_year));
+// console.log(human_years(puppy_year));
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movements);
+
+// const euro_mov = movements
+//   .filter(mov => mov > 0)
+//   .map((mov, i, arr) => {
+//     console.log(arr);
+
+//     return mov * 1.1;
+//   })
+//   .reduce((acc, cur) => acc + cur, 0);
+
+// console.log(euro_mov);
