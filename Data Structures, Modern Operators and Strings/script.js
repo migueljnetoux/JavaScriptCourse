@@ -736,3 +736,27 @@ document.querySelector('button').addEventListener('click', function () {
   }
 });
  */
+
+//Resistor COde
+
+const color_encod = new Map([
+  ['black', '0'],
+  ['brown', 1],
+  ['red', 2],
+  ['orange', 3],
+  ['yellow', 4],
+  ['green', 5],
+  ['blue', 6],
+  ['violet', 7],
+  ['grey', 8],
+  ['white', 9],
+]);
+
+const color_code = function (...band_colors) {
+  console.log(band_colors);
+  band_colors.forEach(color =>
+    console.log(`${color} : ${color_encod.get(color)}`)
+  );
+};
+
+color_code('black', 'grey', 'yellow');
