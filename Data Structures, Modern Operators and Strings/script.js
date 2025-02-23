@@ -753,10 +753,9 @@ const color_encod = new Map([
 ]);
 
 const color_code = function (...band_colors) {
-  console.log(band_colors);
-  band_colors.forEach(color =>
-    console.log(`${color} : ${color_encod.get(color)}`)
-  );
+  let str = '';
+  band_colors.forEach(color => (str += color_encod.get(color)));
+  console.log(str.slice(0, 2));
 };
 
-color_code('black', 'grey', 'yellow');
+color_code('black', 'grey', 'yellow', 'yellow', 'yellow');
