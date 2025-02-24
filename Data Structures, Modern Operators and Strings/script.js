@@ -739,23 +739,23 @@ document.querySelector('button').addEventListener('click', function () {
 
 //Resistor COde
 
-const color_encod = new Map([
-  ['black', '0'],
-  ['brown', 1],
-  ['red', 2],
-  ['orange', 3],
-  ['yellow', 4],
-  ['green', 5],
-  ['blue', 6],
-  ['violet', 7],
-  ['grey', 8],
-  ['white', 9],
-]);
+// const color_encod = new Map([
+//   ['black', '0'],
+//   ['brown', 1],
+//   ['red', 2],
+//   ['orange', 3],
+//   ['yellow', 4],
+//   ['green', 5],
+//   ['blue', 6],
+//   ['violet', 7],
+//   ['grey', 8],
+//   ['white', 9],
+// ]);
 
-const color_code = function (...band_colors) {
-  let str = '';
-  band_colors.forEach(color => (str += color_encod.get(color)));
-  console.log(str.slice(0, 2));
-};
+// const color_code = function (...band_colors) {
+//   let str = '';
+//   band_colors.forEach(color => (str += color_encod.get(color)));
+//   console.log(str.slice(0, 2));
+// };
 
-color_code('black', 'grey', 'yellow', 'yellow', 'yellow');
+// color_code('black', 'grey', 'yellow', 'yellow', 'yellow');

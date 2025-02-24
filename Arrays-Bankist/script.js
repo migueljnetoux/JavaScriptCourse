@@ -412,3 +412,11 @@ console.log(accounts);
 //   .reduce((acc, cur) => acc + cur, 0);
 
 // console.log(euro_mov);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+const last_withdrawal = movements.findLast(mov => mov < 0);
+const last_withdrawal_index = movements.findLastIndex(mov => mov < 0);
+console.log(last_withdrawal);
+console.log(last_withdrawal_index);
