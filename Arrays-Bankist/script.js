@@ -446,14 +446,126 @@ console.log(accounts);
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 
-console.log(movements.includes(-130)); //iquality
+// console.log(movements.includes(-130)); //iquality
 
-console.log(movements.some(mov => mov > 0)); //condition for any
+// console.log(movements.some(mov => mov > 0)); //condition for any
 
-console.log(account4.movements.every(mov => mov > 0)); //consition for every
+// console.log(account4.movements.every(mov => mov > 0)); //consition for every
 
-//outer callback
-const is_deposit = mov => mov > 0;
-console.log(movements.some(is_deposit));
-console.log(movements.every(is_deposit));
-console.log(movements.filter(is_deposit));
+// //outer callback
+// const is_deposit = mov => mov > 0;
+// console.log(movements.some(is_deposit));
+// console.log(movements.every(is_deposit));
+// console.log(movements.filter(is_deposit));
+
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat());
+
+// const arr_deep = [[[1, 2], 3], [4, 5, 6], 7, 8]; //flat onyle goes one level deep
+// console.log(arr_deep.flat());
+// console.log(arr_deep.flat(2)); //this goes 2 levels deep
+
+// const account_movements = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, cur) => acc + cur, 0);
+
+// console.log(account_movements);
+
+// //FLAT MAP
+// const account_movements_flat = accounts
+//   .flatMap(acc => acc.movements) //only goes down one level
+//   .reduce((acc, cur) => acc + cur, 0);
+
+// console.log(account_movements_flat);
+
+// exercise 4
+
+// const breeds = [
+//   {
+//     breed: 'German Shepherd',
+//     averageWeight: 32,
+//     activities: ['fetch', 'swimming'],
+//   },
+//   {
+//     breed: 'Dalmatian',
+//     averageWeight: 24,
+//     activities: ['running', 'fetch', 'agility'],
+//   },
+//   {
+//     breed: 'Labrador',
+//     averageWeight: 28,
+//     activities: ['swimming', 'fetch'],
+//   },
+//   {
+//     breed: 'Beagle',
+//     averageWeight: 12,
+//     activities: ['digging', 'fetch'],
+//   },
+//   {
+//     breed: 'Husky',
+//     averageWeight: 26,
+//     activities: ['running', 'agility', 'swimming'],
+//   },
+//   {
+//     breed: 'Bulldog',
+//     averageWeight: 36,
+//     activities: ['sleeping'],
+//   },
+//   {
+//     breed: 'Poodle',
+//     averageWeight: 18,
+//     activities: ['agility', 'fetch'],
+//   },
+// ];
+// // 4.1
+// const husky_weight = breeds.find(
+//   breed => breed.breed === 'Husky'
+// ).averageWeight;
+// console.log(husky_weight);
+
+// // 4.2
+// const dog_both_activities = breeds.find(breed =>
+//   // breed.activities.includes('running') && breed.activities.includes('fetching')
+//   breed.activities.includes('running', 'fetching')
+// ).breed;
+
+// console.log(dog_both_activities);
+
+// // 4.3 and 4.4
+// const all_activities = new Set(breeds.flatMap(breed => breed.activities));
+
+// console.log(all_activities);
+
+// // 4.5
+// const swimming_adjacent = new Set(
+//   breeds
+//     .filter(breed => breed.activities.includes('swimming'))
+//     .flatMap(breed => breed.activities)
+//     .filter(act => act != 'swimming')
+// );
+
+// console.log(swimming_adjacent);
+
+// // 4.6
+// const average_weight_above_ten = breeds.every(
+//   breed => breed.averageWeight > 10
+// );
+// console.log(average_weight_above_ten);
+
+// // 4.7
+// const any_active = breeds.some(breed => breed.activities.length >= 3);
+// console.log(any_active);
+
+// // bonus
+
+// const fetch_weights = breeds
+//   .filter(breed => breed.activities.includes('fetch'))
+//   .map(breed => breed.averageWeight);
+
+// const heaviest_fetch_weight = Math.max(...fetch_weights);
+// console.log(heaviest_fetch_weight);
+
+// console.log(
+//   breeds.find(breed => breed.averageWeight == heaviest_fetch_weight).breed
+// );
