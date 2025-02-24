@@ -196,6 +196,27 @@ btnTransfer.addEventListener('click', function (event) {
   inputTransferAmount.blur();
 });
 
+/////////////////////////////////////////Loan Button/////////////////////////////////////////////////
+
+btnLoan.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  const amount = inputLoanAmount.value;
+
+  if (
+    amount > 0 &&
+    current_account.movements.some(mov => mov >= amount * 0.1)
+  ) {
+    current_account.movements.push(amount);
+    update_ui(current_account);
+  } else {
+    loan_aut: console.log('Loan was not authorized');
+  }
+
+  inputLoanAmount.value = '';
+  inputLoanAmount.blur();
+});
+
 /////////////////////////////////////////Close Account/////////////////////////////////////////////////
 
 btnClose.addEventListener('click', function (event) {
@@ -413,10 +434,26 @@ console.log(accounts);
 
 // console.log(euro_mov);
 
+//Find last find last index
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movements);
+
+// const last_withdrawal = movements.findLast(mov => mov < 0);
+// const last_withdrawal_index = movements.findLastIndex(mov => mov < 0);
+// console.log(last_withdrawal);
+// console.log(last_withdrawal_index);
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 
-const last_withdrawal = movements.findLast(mov => mov < 0);
-const last_withdrawal_index = movements.findLastIndex(mov => mov < 0);
-console.log(last_withdrawal);
-console.log(last_withdrawal_index);
+console.log(movements.includes(-130)); //iquality
+
+console.log(movements.some(mov => mov > 0)); //condition for any
+
+console.log(account4.movements.every(mov => mov > 0)); //consition for every
+
+//outer callback
+const is_deposit = mov => mov > 0;
+console.log(movements.some(is_deposit));
+console.log(movements.every(is_deposit));
+console.log(movements.filter(is_deposit));
