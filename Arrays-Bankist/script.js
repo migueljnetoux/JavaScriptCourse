@@ -62,9 +62,15 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 //display movements
-const display_movement = function (acc) {
+const display_movement = function (acc, sort = false) {
   containerMovements.innerHTML = ''; //clear container
-  acc.movements.forEach(function (mov, i) {
+
+  //sort movement array
+  const movs = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
+
+  movs.forEach(function (mov, i) {
     const mov_type = mov < 0 ? 'withdrawal' : 'deposit';
 
     const html = `
@@ -246,6 +252,17 @@ btnClose.addEventListener('click', function (event) {
 });
 
 console.log(accounts);
+
+/////////////////////////////////////////Sort Button/////////////////////////////////////////////////
+let sorted = false;
+
+btnSort.addEventListener('click', function (event) {
+  event.preventDefault();
+  display_movement(current_account, !sorted);
+
+  sorted = !sorted;
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -443,9 +460,6 @@ console.log(accounts);
 // console.log(last_withdrawal);
 // console.log(last_withdrawal_index);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-console.log(movements);
-
 // console.log(movements.includes(-130)); //iquality
 
 // console.log(movements.some(mov => mov > 0)); //condition for any
@@ -569,3 +583,32 @@ console.log(movements);
 // console.log(
 //   breeds.find(breed => breed.averageWeight == heaviest_fetch_weight).breed
 // );
+
+// const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// console.log(owners);
+
+// console.log(owners.sort()); //mutates array
+// console.log(owners);
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(movements);
+
+// // A and B are the current and thevalue of the next index
+// // keep order => return < 0 // A, B
+// // reverse order => return > 0 // B, A
+
+// //Ascending
+// movements.sort((a, b) => {
+//   if (a < b) {
+//     return -1;
+//   }
+//   if (a > b) {
+//     return 1;
+//   }
+// });
+// console.log(movements);
+
+// //Descending
+// movements.sort((a, b) => b - a); //if b > a it returns a positive //reverses the order
+
+// console.log(movements);
