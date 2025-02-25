@@ -273,8 +273,42 @@ const grouped_account_type = Object.groupBy(accounts, ({ type }) => type);
 console.log(grouped_account_type);
 
 const total_deposits = accounts
-  .map(acc => acc.movements)
-  .filter(mov => mov > 0)
-  .reduce((acc, cur) => acc + cur, 0);
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov >= 1000)
+  .reduce((acc, cur, i, array) => array.length, 0);
 
 console.log(total_deposits);
+
+const object_deposits = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sum, cur) => {
+      // cur > 0 ? (sum.deposits += cur) : (sum.withdrawals += cur);
+      sum[cur > 0 ? 0 : 1] += cur;
+      return sum;
+    },
+    [0, 0]
+  );
+
+console.log(object_deposits);
+
+const title_case = function (string) {
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+  const title_cased_string = string
+    .toLowerCase()
+    .split(' ')
+    .map(item => (exceptions.includes(item) ? item : capitalize(item)))
+    .join(' ');
+
+  return capitalize(title_cased_string);
+};
+
+console.log(
+  title_case(
+    'this is a nice title with SOME exceptions to words like "a" or "an"'
+  )
+);
+
+console.log(title_case('an interesting title'));
