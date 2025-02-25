@@ -345,3 +345,48 @@
 // movements.sort((a, b) => b - a); //if b > a it returns a positive //reverses the order
 
 // console.log(movements);
+
+//array grouping
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(movements);
+
+const grouped_movements = Object.groupBy(movements, (mov) =>
+  mov > 0 ? "deposits" : "withdrawals"
+);
+console.log(grouped_movements.deposits);
+
+const grouped_activity = Object.groupBy(movements, (mov) => {
+  if (mov >= 2000) return "big movement";
+  if (mov >= 1000) return "mid movement";
+  if (mov >= 0) return "small movement";
+  return "negative";
+});
+console.log(grouped_activity);
+
+const new_arr = new Array(7);
+console.log(new_arr);
+
+new_arr.fill(1, 3 /* start index */, 5 /* end index */);
+console.log(new_arr);
+
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; //existing array
+arr.fill(99, 3, 5);
+console.log(arr);
+
+const array_from = Array.from(
+  { length: 7 },
+  (cur) => 1 /* mapping callback func */
+);
+console.log(array_from);
+
+// recreating [1,2,3,4,5,6,7]
+
+const array_ascending = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(array_ascending);
+
+const dice_roll = Array.from({ length: 100 }, () =>
+  Math.ceil(Math.random() * 6)
+);
+console.log(dice_roll);
