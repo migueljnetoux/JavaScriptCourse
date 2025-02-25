@@ -268,5 +268,13 @@ btnSort.addEventListener('click', function (event) {
   sorted = !sorted;
 });
 
+/////////////////////////////////////////Exercises/////////////////////////////////////////////////
 const grouped_account_type = Object.groupBy(accounts, ({ type }) => type);
 console.log(grouped_account_type);
+
+const total_deposits = accounts
+  .map(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((acc, cur) => acc + cur, 0);
+
+console.log(total_deposits);
