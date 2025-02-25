@@ -230,41 +230,42 @@
 
 // const breeds = [
 //   {
-//     breed: 'German Shepherd',
+//     breed: "German Shepherd",
 //     averageWeight: 32,
-//     activities: ['fetch', 'swimming'],
+//     activities: ["fetch", "swimming"],
 //   },
 //   {
-//     breed: 'Dalmatian',
+//     breed: "Dalmatian",
 //     averageWeight: 24,
-//     activities: ['running', 'fetch', 'agility'],
+//     activities: ["running", "fetch", "agility"],
 //   },
 //   {
-//     breed: 'Labrador',
+//     breed: "Labrador",
 //     averageWeight: 28,
-//     activities: ['swimming', 'fetch'],
+//     activities: ["swimming", "fetch"],
 //   },
 //   {
-//     breed: 'Beagle',
+//     breed: "Beagle",
 //     averageWeight: 12,
-//     activities: ['digging', 'fetch'],
+//     activities: ["digging", "fetch"],
 //   },
 //   {
-//     breed: 'Husky',
+//     breed: "Husky",
 //     averageWeight: 26,
-//     activities: ['running', 'agility', 'swimming'],
+//     activities: ["running", "agility", "swimming"],
 //   },
 //   {
-//     breed: 'Bulldog',
+//     breed: "Bulldog",
 //     averageWeight: 36,
-//     activities: ['sleeping'],
+//     activities: ["sleeping"],
 //   },
 //   {
-//     breed: 'Poodle',
+//     breed: "Poodle",
 //     averageWeight: 18,
-//     activities: ['agility', 'fetch'],
+//     activities: ["agility", "fetch"],
 //   },
 // ];
+
 // // 4.1
 // const husky_weight = breeds.find(
 //   breed => breed.breed === 'Husky'
@@ -317,6 +318,86 @@
 //   breeds.find(breed => breed.averageWeight == heaviest_fetch_weight).breed
 // );
 
+// const dogs = [
+//   { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+//   { weight: 8, curFood: 200, owners: ["Matilda"] },
+//   { weight: 13, curFood: 275, owners: ["Sarah", "John", "Leo"] },
+//   { weight: 18, curFood: 244, owners: ["Joe"] },
+//   { weight: 32, curFood: 340, owners: ["Michael"] },
+// ];
+
+// // exercise 5
+
+// // 5.1
+// dogs.forEach((dog) => (dog.recFood = Math.floor(dog.weight ** 0.75 * 28)));
+// console.log(dogs);
+
+// // 5.2
+// const sarah_dog = dogs.find((dog) => dog.owners.includes("Sarah"));
+// console.log(sarah_dog);
+
+// const sarah_dog_max = 1.1 * sarah_dog.recFood;
+// const sarah_dog_min = 0.9 * sarah_dog.recFood;
+
+// if (sarah_dog.curFood > sarah_dog_min && sarah_dog.curFood < sarah_dog_max)
+//   console.log("okay");
+
+// // 5.3
+// // find dogs who eat too much and eat too little
+// // grab names
+
+// const too_much = dogs
+//   .filter((dog) => dog.curFood > 1.1 * dog.recFood)
+//   .flatMap((dog) => dog.owners);
+// console.log(too_much);
+
+// const too_little = dogs
+//   .filter((dog) => dog.curFood < 0.9 * dog.recFood)
+//   .flatMap((dog) => dog.owners);
+// console.log(too_little);
+
+// // 5.4
+
+// const str_over = `${too_much.join(" and ")}"s eat too much`;
+// console.log(str_over);
+
+// // 5.5
+
+// console.log(
+//   dogs.some(
+//     (dog) => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1
+//   )
+// );
+// // 5.6
+
+// const okay_food = dogs.filter(
+//   (dog) => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1
+// );
+
+// console.log(okay_food);
+
+// // 5.8
+
+// const dogs_grouped = Object.groupBy(dogs, (dog) => {
+//   if (dog.curFood === dog.recFood) return "exact";
+//   if (dog.curFood < dog.recFood) return "too little";
+//   if (dog.curFood > dog.recFood) return "too much";
+// });
+
+// console.log(dogs_grouped);
+
+// // 5.9
+
+// const dogs_grouped_owners = Object.groupBy(dogs, (dog) => {
+//   return `${dog.owners.length}-owners`;
+// });
+
+// console.log(dogs_grouped_owners);
+
+// // 5.10
+// const sorted_rec = dogs.toSorted((a, b) => a.recFood - b.recFood);
+// console.log(sorted_rec);
+
 // const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 // console.log(owners);
 
@@ -348,9 +429,9 @@
 
 //array grouping
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-console.log(movements);
+// console.log(movements);
 
 // const grouped_movements = Object.groupBy(movements, (mov) =>
 //   mov > 0 ? "deposits" : "withdrawals"
