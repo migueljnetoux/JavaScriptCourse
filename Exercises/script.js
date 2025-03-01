@@ -129,3 +129,14 @@
 // const dogsSorted = dogs.toSorted((a, b) => a.recFood - b.recFood);
 
 // console.log(dogsSorted);
+
+// pangram
+
+// function isPangram(string) {
+//   const lettersSet = [...new Set(string.split(""))];
+//   console.log(lettersSet.length);
+//   console.log(lettersSet);
+//   return lettersSet.length == 26;
+// }
+
+// console.log(isPangram("abacdefghijklmnopqrstuvwxyz"));
