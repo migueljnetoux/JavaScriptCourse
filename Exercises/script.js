@@ -140,3 +140,20 @@
 // }
 
 // console.log(isPangram("abacdefghijklmnopqrstuvwxyz"));
+
+// Fibonacci
+
+function fibonacci(n) {
+  const fibArray = [0, 1];
+  for (let i = 1; i < n; i++) {
+    let first = fibArray[i - 1];
+    let second = fibArray[i];
+    let current = first + second;
+    fibArray.push(current);
+  }
+  return fibArray;
+}
+
+console.log(fibonacci(10));
+
+// [0,1,1,2,3,5,8,13]
