@@ -143,17 +143,38 @@
 
 // Fibonacci
 
-function fibonacci(n) {
-  const fibArray = [0, 1];
-  for (let i = 1; i < n; i++) {
-    let first = fibArray[i - 1];
-    let second = fibArray[i];
-    let current = first + second;
-    fibArray.push(current);
-  }
-  return fibArray;
-}
+// function fibonacci(n) {
+//   const fibArray = [0, 1];
+//   for (let i = 1; i < n; i++) {
+//     let first = fibArray[i - 1];
+//     let second = fibArray[i];
+//     let current = first + second;
+//     fibArray.push(current);
+//   }
+//   return fibArray;
+// }
 
-console.log(fibonacci(10));
+// console.log(fibonacci(10));
 
 // [0,1,1,2,3,5,8,13]
+
+// Manual Array Methods
+
+// teste data
+// let array1 = [1, 2, 3, 4, 5];
+// const array2 = [6, 7, 8, 9, 10];
+
+// // Append
+// array1 = [...array1, ...array2];
+// console.log(array1);
+
+// // filter
+
+// const filterdList = [];
+// for (let i = 0; i < array1.length; i++) {
+//   if (array1[i] >= 5) filterdList.push(array1[i]);
+// }
+
+// console.log(filterdList);
+
+// //
