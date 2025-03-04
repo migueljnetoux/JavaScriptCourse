@@ -178,3 +178,20 @@
 // console.log(filterdList);
 
 // //
+
+// nTh Prime
+
+function nThPrime(n) {
+  // gerar numeros primos
+  for (let i = 0; counter != n; i++) {
+    for (let j = i - 1; j > 1; j--) {
+      if (j % i == 0) {
+        return false;
+        break;
+      }
+    if (j == false) 
+    }
+  }
+  let counter = 0;
+}
+// counter++ ate counter == n
