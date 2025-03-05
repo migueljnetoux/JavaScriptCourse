@@ -181,17 +181,21 @@
 
 // nTh Prime
 
-function nThPrime(n) {
-  // gerar numeros primos
-  for (let i = 0; counter != n; i++) {
-    for (let j = i - 1; j > 1; j--) {
-      if (j % i == 0) {
-        return false;
-        break;
-      }
-    if (j == false) 
-    }
-  }
-  let counter = 0;
-}
-// counter++ ate counter == n
+// function nThPrime(n) {
+//   // gerar numeros primos
+//   let counter = 0;
+//   for (let i = 1; counter != n; i++) {
+//     let isPrime = true;
+//     for (let j = i - 1; j > 1; j--) {
+//       if (i % j == 0) {
+//         isPrime = false;
+//         break;
+//       }
+//       if (isPrime == true) counter++;
+//       console.log(i, n);
+//     }
+//   }
+// }
+// // counter++ ate counter == n
+
+// nThPrime(5);
