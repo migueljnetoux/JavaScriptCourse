@@ -181,21 +181,36 @@
 
 // nTh Prime
 
-// function nThPrime(n) {
-//   // gerar numeros primos
-//   let counter = 0;
-//   for (let i = 1; counter != n; i++) {
-//     let isPrime = true;
-//     for (let j = i - 1; j > 1; j--) {
-//       if (i % j == 0) {
-//         isPrime = false;
-//         break;
-//       }
-//       if (isPrime == true) counter++;
-//       console.log(i, n);
-//     }
-//   }
-// }
-// // counter++ ate counter == n
+function nThPrime(n) {
+  // gerar numeros primos
+  let counter = 0;
+  for (let i = 1; counter != n; i++) {
+    let isPrime = true;
+    for (let j = i - 1; j > 1; j--) {
+      if (i % j === 0) {
+        isPrime = false;
+        break;
+      }
+      if (isPrime == true) {
+        counter++;
+        console.log(i);
+      }
+    }
+  }
+}
+// counter++ ate counter == n
 
-// nThPrime(5);
+nThPrime(5);
+
+function checkPrime(n) {
+  let isPrime = true;
+  for (let i = n - 1; i > 1; i--) {
+    if (n % i == 0) {
+      isPrime = false;
+    }
+  }
+  return isPrime;
+}
+
+console.log(checkPrime(4));
+console.log(checkPrime(5));
