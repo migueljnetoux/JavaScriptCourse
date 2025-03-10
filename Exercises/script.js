@@ -180,26 +180,6 @@
 // //
 
 // nTh Prime
-
-function nThPrime(n) {
-  // gerar numeros primos
-  let counter = 0;
-  for (let i = 1; counter != n; i++) {
-    let isPrime = true;
-    for (let j = i - 1; j > 1; j--) {
-      if (i % j === 0) {
-        isPrime = false;
-        break;
-      }
-      if (isPrime == true) {
-        counter++;
-        console.log(i);
-      }
-    }
-  }
-}
-// counter++ ate counter == n
-
 function nThPrime(n) {
   let primeList = [2];
   for (let i = 3; primeList.length < n; i++) {
@@ -237,10 +217,7 @@ function nThFib(n) {
   return fibArray[n - 1];
 }
 
-console.log(nThFib(2));
+console.log(nThFib(0));
 console.log(nThFib(1));
+console.log(nThFib(2));
 console.log(nThFib(3));
-console.log(nThFib(4));
-console.log(nThFib(5));
-console.log(nThFib(6));
-console.log(nThFib(7));
