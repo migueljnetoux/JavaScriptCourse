@@ -200,17 +200,24 @@ function nThPrime(n) {
 }
 // counter++ ate counter == n
 
-nThPrime(5);
+function nThPrime(n) {
+  let primeList = [2];
+  for (let i = 3; primeList.length < n; i++) {
+    let isPrime = true;
 
-function checkPrime(n) {
-  let isPrime = true;
-  for (let i = n - 1; i > 1; i--) {
-    if (n % i == 0) {
-      isPrime = false;
+    for (let j = i - 1; j > 1; j--) {
+      if (i % j == 0) {
+        isPrime = false;
+        break;
+      }
     }
+    isPrime ? primeList.push(i) : false;
   }
-  return isPrime;
+  console.log(primeList);
+
+  return primeList[n - 1];
 }
 
-console.log(checkPrime(4));
-console.log(checkPrime(5));
+console.log("4th ", nThPrime(4));
+console.log("9th ", nThPrime(9));
+console.log("6th ", nThPrime(6));
