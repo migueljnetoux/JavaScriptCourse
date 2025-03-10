@@ -221,3 +221,26 @@ function nThPrime(n) {
 console.log("4th ", nThPrime(4));
 console.log("9th ", nThPrime(9));
 console.log("6th ", nThPrime(6));
+
+//nth Fib
+function nThFib(n) {
+  let fibArray = [0, 1];
+
+  for (let i = 1; fibArray.length < n; i++) {
+    let first = fibArray[i - 1];
+    let second = fibArray[i];
+    let current = first + second;
+    fibArray.push(current);
+  }
+  console.log(fibArray);
+
+  return fibArray[n - 1];
+}
+
+console.log(nThFib(2));
+console.log(nThFib(1));
+console.log(nThFib(3));
+console.log(nThFib(4));
+console.log(nThFib(5));
+console.log(nThFib(6));
+console.log(nThFib(7));
