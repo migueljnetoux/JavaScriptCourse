@@ -180,44 +180,44 @@
 // //
 
 // nTh Prime
-function nThPrime(n) {
-  let primeList = [2];
-  for (let i = 3; primeList.length < n; i++) {
-    let isPrime = true;
+// function nThPrime(n) {
+//   let primeList = [2];
+//   for (let i = 3; primeList.length < n; i++) {
+//     let isPrime = true;
 
-    for (let j = i - 1; j > 1; j--) {
-      if (i % j == 0) {
-        isPrime = false;
-        break;
-      }
-    }
-    isPrime ? primeList.push(i) : false;
-  }
-  console.log(primeList);
+//     for (let j = i - 1; j > 1; j--) {
+//       if (i % j == 0) {
+//         isPrime = false;
+//         break;
+//       }
+//     }
+//     isPrime ? primeList.push(i) : false;
+//   }
+//   console.log(primeList);
 
-  return primeList[n - 1];
-}
+//   return primeList[n - 1];
+// }
 
-console.log("4th ", nThPrime(4));
-console.log("9th ", nThPrime(9));
-console.log("6th ", nThPrime(6));
+// console.log("4th ", nThPrime(4));
+// console.log("9th ", nThPrime(9));
+// console.log("6th ", nThPrime(6));
 
-//nth Fib
-function nThFib(n) {
-  let fibArray = [0, 1];
+// //nth Fib
+// function nThFib(n) {
+//   let fibArray = [0, 1];
 
-  for (let i = 1; fibArray.length < n; i++) {
-    let first = fibArray[i - 1];
-    let second = fibArray[i];
-    let current = first + second;
-    fibArray.push(current);
-  }
-  console.log(fibArray);
+//   for (let i = 1; fibArray.length < n; i++) {
+//     let first = fibArray[i - 1];
+//     let second = fibArray[i];
+//     let current = first + second;
+//     fibArray.push(current);
+//   }
+//   console.log(fibArray);
 
-  return fibArray[n - 1];
-}
+//   return fibArray[n - 1];
+// }
 
-console.log(nThFib(0));
-console.log(nThFib(1));
-console.log(nThFib(2));
-console.log(nThFib(3));
+// console.log(nThFib(0));
+// console.log(nThFib(1));
+// console.log(nThFib(2));
+// console.log(nThFib(3));
